@@ -24,6 +24,9 @@ elif command -v opkg &> /dev/null; then
 elif command -v apk &> /dev/null; then
     PKG_MANAGER="apk"
     INSTALL_CMD="$SUDO apk add"
+elif command -v xbps &> /dev/null; then
+    PKG_MANAGER="xbps"
+    INSTALL_CMD="$SUDO xbps-install"
 else
     echo "Не удалось определить пакетный менеджер. Убедитесь, что ваш дистрибутив поддерживается."
     exit 1
