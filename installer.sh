@@ -94,6 +94,8 @@ fi
 
 if command -v systemctl &> /dev/null; then
     $SUDO systemctl restart zapret
+elif [ "$PKG_MANAGER" == "xbps" ]; then
+    $SUDO sv restart zapret
 elif [ "$PKG_MANAGER" == "opkg" ]; then
     $SUDO /etc/init.d/zapret restart
 else
