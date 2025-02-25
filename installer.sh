@@ -92,9 +92,7 @@ if [ "$choice" -eq 2 ]; then
     $SUDO cp -r tls_clienthello_www_google_com.bin /opt/zapret/files/fake/tls_clienthello_www_google_com.bin
 fi
 
-if command -v systemctl &> /dev/null; then
-    $SUDO systemctl restart zapret
-elif [ "$PKG_MANAGER" == "xbps" ]; then
+if command -v sv &> /dev/null; then
     $SUDO sv restart zapret
 elif [ "$PKG_MANAGER" == "opkg" ]; then
     $SUDO /etc/init.d/zapret restart
